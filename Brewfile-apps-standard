@@ -1,0 +1,20 @@
+# browsers
+cask 'google-chrome'
+cask 'opera'
+cask 'firefox'
+#cask 'lastpass'
+
+# apps
+#communication
+cask 'skype'
+cask 'slack'
+cask google-hangouts
+
+#music
+cask 'spotify'
+
+# drives
+cask 'dropbox'
+cask 'google-drive'
+#cask 'skydrive' #onedrive
+

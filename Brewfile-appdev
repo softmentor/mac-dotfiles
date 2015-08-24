@@ -1,0 +1,35 @@
+# web dev
+brew 'node'
+
+# databases
+brew 'postgresql', args: ['no-python']
+brew 'redis'
+brew 'rabbitmq'
+brew 'memcached'
+
+## homebrew/apache
+brew 'httpd24'
+
+## apache thrift
+brew 'thrift'
+
+#Mobile dev
+cask genymotion
+cask 'charles'
+
+
+#Virtual env - docker
+cask 'virtualbox'
+cask 'vagrant'
+cask 'vmware-fusion'
+# docker
+#brew 'boot2docker'
+cask 'dockertoolbox'
+cask 'docker-machine'
+cask 'docker-compose'
+
+# Lets fix up a right coding font
+# http://www.levien.com/type/myfonts/inconsolata.html
+# development font
+cask 'font-inconsolata'
+cask 'font-inconsolata-for-powerline'

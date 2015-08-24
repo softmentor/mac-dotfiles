@@ -1,0 +1,14 @@
+
+cask ganttproject
+
+cask 'rdm'
+cask 'vlc'
+cask 'adium'
+cask 'calibre'
+cask 'crashplan'
+cask 'flux'
+cask 'skitch'
+cask 'tinyumbrella'
+cask 'transmission-remote-gui'
+cask 'truecrypt71a'
+cask 'cyberduck'

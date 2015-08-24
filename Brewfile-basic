@@ -1,0 +1,48 @@
+
+
+# git
+brew 'git'
+brew 'git-extras'
+#brew 'legit'
+#git gui clients
+cask github
+#git extras
+cask 'gitx-l'
+cask 'sourcetree'
+
+# ruby version manager
+brew 'rbenv'
+brew 'ruby-build'
+
+# replace default openssl
+brew 'openssl'
+
+# utils
+brew 'ack'
+brew 'the_silver_searcher'
+brew 'fasd'
+brew 'wget'
+brew 'curl'
+brew 'ngrok'
+brew 'awscli'
+brew 'terminal-notifier'
+# terminal
+cask 'iterm2'
+
+# editor
+brew 'vim', args: ['override-system-vi']
+brew 'macvim'
+cask sublime-text3
+cask 'atom'
+
+#languages
+cask 'java'
+cask 'java7'
+brew 'python'
+brew 'go'
+brew 'scala'
+
+# IDEs
+cask intellij-idea
+cask eclipse-jee
+#cask android-studio
