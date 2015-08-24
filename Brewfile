@@ -7,9 +7,7 @@ upgrade
 #Tap all required repositories
 # brew cask for apps
 tap 'homebrew/bundle'
-tap 'caskroom/cask'
-tap 'caskroom/versions'
-tap 'caskroom/fonts'
+tap 'homebrew/services'
 tap 'josegonzalez/php'
 tap 'homebrew/dupes'
 tap 'homebrew/apache'
@@ -20,6 +18,10 @@ tap 'thoughtbot/formulae'
 ## homebrew/science
 tap homebrew/science
 
+tap 'caskroom/cask'
+tap 'caskroom/versions'
+tap 'caskroom/fonts'
+
 # install cask for apps which are not commandline installs
 brew 'brew-cask'
 
@@ -27,16 +29,16 @@ brew 'brew-cask'
 bundle Brewfile-shell
 
 # basic for any developer
-bundle Brewfile-basic
-#bundle Brewfile-advance
+#bundle Brewfile-basic
+##bundle Brewfile-advance
 
 # tools, apps for application developer
-bundle Brewfile-appdev
-bundle Brewfile-apps-standard
+#bundle Brewfile-appdev
+#bundle Brewfile-apps-standard
 
 # Random tools, please choose to customize before executing
-#bundle Brewfile-apps-extras
+##bundle Brewfile-apps-extras
 
 # Finally configure all the installations using rcm
 #rcm - dotfile management
-brew rcm
+#brew rcm

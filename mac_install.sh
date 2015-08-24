@@ -32,7 +32,8 @@ debug(){ log "\nDEBUG: $*\n" ; }
 fail() { log "\nERROR: $*\n" ; exit 1 ; }
 download(){ 
 	# do not fail, silent, ShowError, follow redirects, specify file name
-	curl -fsSLo $1 $2
+  fancy_echo "Inside download, about to curl ... %s" "$1"
+	curl -fsSL $1
 }
 
 #Create or append zshrc and any text files.
@@ -140,21 +141,23 @@ dotfiles_url="https://github.com/softmentor/mac-dotfiles.git"
 
 #First some MAC optimizations:
 
-
-
-
-
 # Install Homebrew, http://brew.sh/
 # This is a package manager for OS X, which helps installing command-line tools easy.
 # Run in terminal For OS X above 10.5
 # Mac OS X Yosemite includes Ruby 2.0.0p481, so we will use this to install Homebrew
-ruby -e "$(download brewinstaller_url)"
-
-# Next steps would be guided by the script. Just enter for apply all the defaults
-
-# Verify brew installed successfully, by invoking below command
-# You should get the following text for success - 'Your system is ready to brew'
-brew doctor
+fancy_echo "Homebrew installation ..."
+#ruby -e "$(download $brewinstaller_url)"
+if ! command_exists brew; then
+  fancy_echo "Installing homebrew ..."
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+else
+  # Verify brew installed successfully, by invoking below command
+  # You should get the following text for success - 'Your system is ready to brew'
+  fancy_echo "Checking if brew is installed successfully, using doctor ..."
+  #brew doctor
+  fancy_echo "Brew update to fetch the latest formulae ..."
+  #brew update
+fi
 
 
 ###########################################################
@@ -168,23 +171,23 @@ echo "gem: --no-document" >> ~/.gemrc
 # Install RVM, if you need Rails, replace --ruby with --rails
 if ! command_exists rvm; then
   echo "=== Installing RVM..."
-  curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --ruby
+  curl -L -v https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --ruby
   echo "=== RVM installed."
   source ~/.bash_profile
 fi
-
-# Verify RVM installation by running, which returns 'rvm is a function'
-type rvm | head -1
-
-# Upgrading rvm and ruby to the stable version
-fancy_echo 'Upgrading RVM...'
-rvm get stable --auto-dotfiles --autolibs=enable --with-gems="bundler"
-fancy_echo 'Upgrading ruby...' 
 
 #Fixing this issue for zsh
 #http://stackoverflow.com/questions/27784961/received-warning-message-path-set-to-rvm-after-updating-ruby-version-using-rvm
 # https://github.com/rvm/rvm/issues/3212
 append_to_file "$HOME/.zshrc" 'export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting'
+# Verify RVM installation by running, which returns 'rvm is a function'
+type rvm | head -1
+fancy_echo "Verified rvm is a function"
+
+# Upgrading rvm and ruby to the stable version
+fancy_echo 'Upgrading RVM...'
+#rvm get stable --auto-dotfiles --autolibs=enable --with-gems="bundler"
+fancy_echo 'Upgrading ruby...' 
 
 fancy_echo 'Updating Rubygems...'
 gem update --system
@@ -196,20 +199,31 @@ bundle config --global jobs $((number_of_cores - 1))
 
 #Installing few more rubies with rvm
 rvm list
+#rvm get stable
 rvm install 1.9.3-p194
-rvm install 2.2.2
+#rvm install 2.2.2
 # for octopress
-rvm use 1.9.3-p194
-gem install bundler
+#rvm use 1.9.3-p194
 rvm use 2.2.2
-rvm global 2.2.2
+rvm default 2.2.2
+
 gem install bundler
-gem install rails
 gem install cocoapods
 
 
 #Git clone all the dot files
-git clone "$(dotfiles_url)" ~/mac-dotfiles
+if [ ! -d "$HOME/mac-dotfiles/" ]; then
+  git clone $dotfiles_url ~/mac-dotfiles
+  fancy_echo "Moving to mac-dotfiles ..."
+  cd ~/mac-dotfiles
+else
+  fancy_echo "Moving to mac-dotfiles ..."
+  cd ~/mac-dotfiles
+  git fetch
+  git pull
+fi
+
+
 
 # We will use the brew file method to install all required command-line tools
 # More details here: https://robots.thoughtbot.com/brewfile-a-gemfile-but-for-homebrew
@@ -224,7 +238,7 @@ brew bundle
 #http://thoughtbot.github.io/rcm/rcm.7.html
 
 env RCRC=$HOME/mac-dotfiles/dotfiles/rcrc
-rcup -d ~/mac-dotfiles/dotfiles -v
+#rcup -d ~/mac-dotfiles/dotfiles -v
 
 
 # Below script is used to install a bunch of command line and gui tools(using brew casks)

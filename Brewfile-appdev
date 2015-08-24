@@ -1,11 +1,15 @@
+# build tools
+brew maven
+brew gradle
+
 # web dev
 brew 'node'
 
 # databases
 brew 'postgresql', args: ['no-python']
 brew 'redis'
-brew 'rabbitmq'
-brew 'memcached'
+#brew 'rabbitmq'
+#brew 'memcached'
 
 ## homebrew/apache
 brew 'httpd24'
@@ -17,6 +21,8 @@ brew 'thrift'
 cask genymotion
 cask 'charles'
 
+#performance testing
+brew ab
 
 #Virtual env - docker
 cask 'virtualbox'

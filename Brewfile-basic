@@ -1,18 +1,19 @@
-
-
+	
 # git
 brew 'git'
 brew 'git-extras'
 #brew 'legit'
+
 #git gui clients
 cask github
+
 #git extras
-cask 'gitx-l'
-cask 'sourcetree'
+#cask 'gitx-l'
+#cask 'sourcetree'
 
 # ruby version manager
-brew 'rbenv'
-brew 'ruby-build'
+#brew 'rbenv'
+#brew 'ruby-build'
 
 # replace default openssl
 brew 'openssl'
@@ -26,12 +27,16 @@ brew 'curl'
 brew 'ngrok'
 brew 'awscli'
 brew 'terminal-notifier'
+brew 'htop-osx'
+brew 'imagemagick'
+
+
 # terminal
 cask 'iterm2'
 
 # editor
 brew 'vim', args: ['override-system-vi']
-brew 'macvim'
+#brew 'macvim'
 cask sublime-text3
 cask 'atom'
 
@@ -46,3 +51,4 @@ brew 'scala'
 cask intellij-idea
 cask eclipse-jee
 #cask android-studio
+
