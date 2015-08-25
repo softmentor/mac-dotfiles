@@ -232,6 +232,22 @@ fi
 brew tap homebrew/bundle
 # use the Brewfile which has all required tools
 brew bundle
+# shell specific installs is available in file Brewfile-shell, this is just like a include file
+brew bundle Brewfile-shell
+# basic for any developer
+brew bundle Brewfile-basic
+##bundle Brewfile-advance
+# tools, apps for application developer
+brew bundle Brewfile-appdev
+brew bundle Brewfile-apps-standard
+
+# Random tools, please choose to customize before executing
+##bundle Brewfile-apps-extras
+
+# Finally configure all the installations using rcm
+#rcm - dotfile management
+#brew rcm
+
 
 #Install the dot files to configure all tools
 #Refer: https://github.com/thoughtbot/rcm

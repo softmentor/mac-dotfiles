@@ -5,7 +5,7 @@ brew 'git-extras'
 #brew 'legit'
 
 #git gui clients
-cask github
+#cask github
 
 #git extras
 #cask 'gitx-l'
@@ -37,7 +37,7 @@ cask 'iterm2'
 # editor
 brew 'vim', args: ['override-system-vi']
 #brew 'macvim'
-cask sublime-text3
+#cask sublime-text3
 cask 'atom'
 
 #languages
@@ -48,7 +48,7 @@ brew 'go'
 brew 'scala'
 
 # IDEs
-cask intellij-idea
-cask eclipse-jee
+#cask intellij-idea
+#cask eclipse-jee
 #cask android-studio
 

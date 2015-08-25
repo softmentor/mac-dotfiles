@@ -1,14 +1,14 @@
 # shell
 brew 'zsh'
-brew homebrew/dupes/grep --with-default-names
-brew make
-brew zlib
+#brew homebrew/dupes/grep
+#brew make
+#brew zlib
 
 # Install GNU core utilities (those that come with OS X are outdated)
-brew coreutils
+#brew coreutils
 
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
-brew findutils
+#brew findutils
 
 # Install Bash 4
-brew bash
+#brew bash
