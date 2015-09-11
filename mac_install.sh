@@ -233,13 +233,13 @@ brew tap homebrew/bundle
 # use the Brewfile which has all required tools
 brew bundle
 # shell specific installs is available in file Brewfile-shell, this is just like a include file
-brew bundle Brewfile-shell
+brew bundle --file=Brewfile-shell
 # basic for any developer
-brew bundle Brewfile-basic
+brew bundle --file=Brewfile-basic
 ##bundle Brewfile-advance
 # tools, apps for application developer
-brew bundle Brewfile-appdev
-brew bundle Brewfile-apps-standard
+brew bundle --file=Brewfile-appdev
+brew bundle --file=Brewfile-apps-standard
 
 # Random tools, please choose to customize before executing
 ##bundle Brewfile-apps-extras

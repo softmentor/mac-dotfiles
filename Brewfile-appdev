@@ -2,6 +2,9 @@
 brew maven
 brew gradle
 
+#documentation
+cask gitbook
+
 # web dev
 brew 'node'
 
