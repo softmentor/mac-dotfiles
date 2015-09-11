@@ -2,7 +2,7 @@
 update
 
 ## Before commands
-before echo EXT before
+before echo before
 
 #Tap all required repositories
 # brew cask for apps
@@ -18,6 +18,8 @@ tap 'thoughtbot/formulae'
 ## homebrew/science
 tap 'homebrew/science'
 
+tap rcmdnk/file
+
 tap 'caskroom/cask'
 tap 'caskroom/versions'
 tap 'caskroom/fonts'
@@ -26,7 +28,8 @@ tap 'caskroom/fonts'
 echo Completed tap...
 
 # install cask for apps which are not commandline installs
-brew 'brew-cask'
+brew brew-cask
+brew brew-file
 
 echo Installed brew-cask...
 
