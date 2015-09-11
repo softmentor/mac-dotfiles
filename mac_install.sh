@@ -220,6 +220,7 @@ else
   fancy_echo "Moving to mac-dotfiles ..."
   cd ~/mac-dotfiles
   git fetch
+  git checkout feature/v1
   git pull
 fi
 
@@ -230,16 +231,25 @@ fi
 # Don't have time to go through the reference, just follow the instructions below
 # To use the Brewfile, tap homebrew/bundle (one time)
 brew tap homebrew/bundle
+fancy_echo "Start Brewfile ..."
 # use the Brewfile which has all required tools
 brew bundle
+fancy_echo "Start with Brewfile-shell ..."
 # shell specific installs is available in file Brewfile-shell, this is just like a include file
 brew bundle --file=Brewfile-shell
+brew bundle Brewfile-shell
+fancy_echo "Start with Brewfile-basic ..."
 # basic for any developer
 brew bundle --file=Brewfile-basic
 ##bundle Brewfile-advance
+fancy_echo "Start with Brewfile-appdev ..."
 # tools, apps for application developer
 brew bundle --file=Brewfile-appdev
 brew bundle --file=Brewfile-apps-standard
+brew bundle Brewfile-appdev
+fancy_echo "Start with Brewfile-apps-standard ..."
+brew bundle Brewfile-apps-standard
+
 
 # Random tools, please choose to customize before executing
 ##bundle Brewfile-apps-extras
