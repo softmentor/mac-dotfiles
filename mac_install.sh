@@ -220,7 +220,7 @@ else
   fancy_echo "Moving to mac-dotfiles ..."
   cd ~/mac-dotfiles
   git fetch
-  git checkout feature/v1
+  git checkout feature/v1 
   git pull
 fi
 
@@ -232,6 +232,7 @@ fi
 # To use the Brewfile, tap homebrew/bundle (one time)
 brew tap homebrew/bundle
 fancy_echo "Start Brewfile ..."
+
 # use the Brewfile which has all required tools
 brew bundle
 fancy_echo "Start with Brewfile-shell ..."
